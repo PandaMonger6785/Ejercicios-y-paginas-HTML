@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Portafolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        .galeria {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        figure {
+            text-align: center;
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        form label {
+            margin-top: 10px;
+        }
+        form input, form textarea {
+            padding: 8px;
+            margin-top: 5px;
+        }
+        form button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+
+    <header>
+        <h1>Mi Portafolio</h1>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+
+    <section id="inicio">
+        <h2>Sobre mí</h2>
+        <p>Hola, soy estudiante de IA en la IPN y este es un ejercicio de pagina web.   </p>
+        <ul>
+            <li>Programación</li>
+            <li>Lectura</li>
+            <li>Videojuegos</li>
+        </ul>
+        <img src="perfil.jpg" alt="Mi foto de perfil" width="200" height="200">
+    </section>
+
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="galeria">
+            <figure>
+                <img src="img1.jpg" alt="Imagen 1" width="200" height="150">
+                <figcaption>Proyecto 1</figcaption>
+            </figure>
+            <figure>
+                <img src="img2.jpg" alt="Imagen 2" width="200" height="150">
+                <figcaption>Proyecto 2</figcaption>
+            </figure>
+            <figure>
+                <img src="img3.jpg" alt="Imagen 3" width="200" height="150">
+                <figcaption>Proyecto 3</figcaption>
+            </figure>
+        </div>
+
+        <h3>Video</h3>
+     
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/U1mspwCtP00" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+        </iframe>
+
+
+        <h3>Audio</h3>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+        </audio>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5"></textarea>
+
+            <button type="submit">Enviar</button>
+            <button type="reset">Restablecer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>2025 - Jeovani Yael Hernandez Cervamtes | jeovaniyhc@gmail.com</p>
+    </footer>
+
+</body>
+</html>
