@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tienda Web</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#formContainer {
+    margin-bottom: 30px; /* separa la tabla del formulario */
+}
+
+input {
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+</style>
+<script>
+const apiUrl = "http://localhost/tienda-api/api/index.php";
+
+
+async function fetchProducts() {
+    const res = await fetch(apiUrl);
+    const data = await res.json();
+    const table = document.getElementById("productsTable");
+    table.innerHTML = "<tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Acciones</th></tr>";
+    data.forEach(p => {
+        table.innerHTML += `<tr>
+            <td>${p.id}</td>
+            <td>${p.nombre}</td>
+            <td>${p.precio}</td>
+            <td>
+                <button onclick="editProduct(${p.id}, '${p.nombre}', ${p.precio})">Editar</button>
+                <button onclick="deleteProduct(${p.id})">Eliminar</button>
+            </td>
+        </tr>`;
+    });
+}
+
+let editId = null;
+
+function editProduct(id, nombre, precio) {
+    document.getElementById("nombre").value = nombre;
+    document.getElementById("precio").value = precio;
+    editId = id;
+    document.getElementById("saveBtn").textContent = "Guardar cambios";
+}
+
+async function saveProduct() {
+    const nombreInput = document.getElementById("nombre");
+    const precioInput = document.getElementById("precio");
+    const nombre = nombreInput.value;
+    const precio = precioInput.value;
+
+    if(nombre === "" || precio === "") {
+        alert("Por favor, completa ambos campos");
+        return;
+    }
+
+    if(editId) {
+        await fetch(apiUrl, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({id: editId, nombre, precio})
+        });
+        editId = null;
+        document.getElementById("saveBtn").textContent = "Agregar";
+    } else {
+        await fetch(apiUrl, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({nombre, precio})
+        });
+    }
+
+    nombreInput.value = "";
+    precioInput.value = "";
+
+    fetchProducts();
+}
+
+async function deleteProduct(id) {
+    if(!confirm("¿Seguro quieres eliminar este producto?")) return;
+
+    await fetch(apiUrl, {
+        method: "DELETE",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({id})
+    });
+    fetchProducts();
+}
+
+window.onload = fetchProducts;
+</script>
+</head>
+<body>
+<h1>Productos</h1>
+<div id="formContainer">
+    <input type="text" id="nombre" placeholder="Nombre">
+    <input type="number" step="0.01" id="precio" placeholder="Precio">
+    <button id="saveBtn" onclick="saveProduct()">Agregar</button>
+</div>
+<table id="productsTable">
+    <tr><th>ID</th><th>Nombre</th><th>Precio</th><th>Acciones</th></tr>
+</table>
+</body>
+</html>
