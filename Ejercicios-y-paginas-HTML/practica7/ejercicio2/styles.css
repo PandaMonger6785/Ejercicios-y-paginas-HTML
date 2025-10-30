@@ -1,0 +1,89 @@
+body {
+    background-image: url('images/art-background4.jpg');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    padding-left: 100px; 
+}
+
+header {
+    background-color: #fff; 
+    padding: 10px 20px;
+    margin-top: 50px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #ccc;
+    width: 300px; 
+    text-align: center;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #000;
+}
+
+header h2 {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    font-style: italic;
+    color: #666;
+    font-weight: normal;
+}
+
+article {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    margin-top: 20px;
+    width: 350px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+article h2 {
+    font-size: 20px;
+    margin-top: 0;
+    color: #000;
+}
+
+article p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+article p:nth-of-type(2) {
+    background-color: #555; 
+    color: #fff; 
+    display: inline-block; 
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+article footer {
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+article footer a {
+    background-color: #fff; 
+    color: #333; 
+    border: 1px solid #666; 
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px; 
+    display: inline-block;
+    font-size: 14px;
+}
+
+article footer img {
+    vertical-align: middle;
+    margin-left: 5px; 
+}
