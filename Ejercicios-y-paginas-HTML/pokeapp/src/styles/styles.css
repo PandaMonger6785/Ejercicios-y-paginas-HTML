@@ -1,0 +1,123 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f0f0;
+  margin: 0;
+}
+
+.app {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #af3a3a;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.app h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.pokemon-list {
+  display: flex;
+  gap: 20px;
+  min-height: 70vh;
+}
+
+.list {
+  width: 250px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.pokemon-card {
+  width: 100%;
+  max-width: 320px;
+}
+
+.pokemon-item {
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  background: #5a9926;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
+}
+
+.pokemon-item:hover {
+  background: #4e34aa;
+  transform: translateX(4px);
+}
+
+.pokemon-item.active {
+  background: #6366f1;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+.pokemon-card {
+  flex: 1;
+  padding: 20px;
+  max-width: 300px;
+  background: linear-gradient(135deg, #020201, #fde68a);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.pokemon-card h2 {
+  text-transform: capitalize;
+  margin-top: 0;
+}
+
+.pokemon-card img {
+  width: 140px;
+  height: 140px;
+  margin: 10px 0;
+}
+
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #010102;
+  border-radius: 4px;
+}
+
+.search-bar {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 18px;
+  margin: 0 auto 28px;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 2px solid #000000;
+  outline: none;
+  background-color: #f9fafb;
+  transition: all 0.25s ease;
+}
+
+.search-bar:hover {
+  border-color: #0e1c55;
+}
+
+.search-bar:focus {
+  border-color: #6366f1;
+  background-color: #381818;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+.search-bar::placeholder {
+  color: #9ca3af;
+}
